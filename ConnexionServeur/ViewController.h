@@ -8,8 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController <UITableViewDataSource, UITableViewDelegate,
+UISearchBarDelegate>
 
+@property NSMutableData *receiveData;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+
+@property NSMutableArray* foTitre;
+@property NSMutableArray* foSmall;
+@property NSMutableArray* foUrl;
+@property  NSMutableDictionary *cacheImages;
+
+@property (weak, nonatomic) IBOutlet UISearchBar *maSearchBarre;
+
+
+@property (weak, nonatomic) IBOutlet UIImageView *testImage;
 
 @end
 

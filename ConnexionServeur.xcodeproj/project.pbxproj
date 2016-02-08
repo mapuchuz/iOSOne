@@ -15,6 +15,7 @@
 		F72D5EC91C655AD70079D293 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F72D5EC71C655AD70079D293 /* LaunchScreen.storyboard */; };
 		F72D5ED41C655AD70079D293 /* ConnexionServeurTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F72D5ED31C655AD70079D293 /* ConnexionServeurTests.m */; };
 		F72D5EDF1C655AD70079D293 /* ConnexionServeurUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F72D5EDE1C655AD70079D293 /* ConnexionServeurUITests.m */; };
+		F741EE0B1C691E8F0034C201 /* rss.png in Resources */ = {isa = PBXBuildFile; fileRef = F741EE0A1C691E8F0034C201 /* rss.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +52,7 @@
 		F72D5EDA1C655AD70079D293 /* ConnexionServeurUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConnexionServeurUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F72D5EDE1C655AD70079D293 /* ConnexionServeurUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnexionServeurUITests.m; sourceTree = "<group>"; };
 		F72D5EE01C655AD70079D293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F741EE0A1C691E8F0034C201 /* rss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rss.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				F72D5EBC1C655AD70079D293 /* AppDelegate.h */,
+				F741EE0A1C691E8F0034C201 /* rss.png */,
 				F72D5EBD1C655AD70079D293 /* AppDelegate.m */,
 				F72D5EBF1C655AD70079D293 /* ViewController.h */,
 				F72D5EC01C655AD70079D293 /* ViewController.m */,
@@ -245,6 +248,7 @@
 			files = (
 				F72D5EC91C655AD70079D293 /* LaunchScreen.storyboard in Resources */,
 				F72D5EC61C655AD70079D293 /* Assets.xcassets in Resources */,
+				F741EE0B1C691E8F0034C201 /* rss.png in Resources */,
 				F72D5EC41C655AD70079D293 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -498,6 +502,7 @@
 				F72D5EE51C655AD70079D293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F72D5EE61C655AD70079D293 /* Build configuration list for PBXNativeTarget "ConnexionServeurTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +511,7 @@
 				F72D5EE81C655AD70079D293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F72D5EE91C655AD70079D293 /* Build configuration list for PBXNativeTarget "ConnexionServeurUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +520,7 @@
 				F72D5EEB1C655AD70079D293 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
