@@ -16,6 +16,7 @@
 		F72D5ED41C655AD70079D293 /* ConnexionServeurTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F72D5ED31C655AD70079D293 /* ConnexionServeurTests.m */; };
 		F72D5EDF1C655AD70079D293 /* ConnexionServeurUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F72D5EDE1C655AD70079D293 /* ConnexionServeurUITests.m */; };
 		F741EE0B1C691E8F0034C201 /* rss.png in Resources */ = {isa = PBXBuildFile; fileRef = F741EE0A1C691E8F0034C201 /* rss.png */; };
+		F741EE0D1C695F6B0034C201 /* rien.png in Resources */ = {isa = PBXBuildFile; fileRef = F741EE0C1C695F6B0034C201 /* rien.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		F72D5EDE1C655AD70079D293 /* ConnexionServeurUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConnexionServeurUITests.m; sourceTree = "<group>"; };
 		F72D5EE01C655AD70079D293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F741EE0A1C691E8F0034C201 /* rss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rss.png; sourceTree = "<group>"; };
+		F741EE0C1C695F6B0034C201 /* rien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rien.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				F72D5EC21C655AD70079D293 /* Main.storyboard */,
 				F72D5EC51C655AD70079D293 /* Assets.xcassets */,
 				F72D5EC71C655AD70079D293 /* LaunchScreen.storyboard */,
+				F741EE0C1C695F6B0034C201 /* rien.png */,
 				F72D5ECA1C655AD70079D293 /* Info.plist */,
 				F72D5EB91C655AD70079D293 /* Supporting Files */,
 			);
@@ -247,6 +250,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F72D5EC91C655AD70079D293 /* LaunchScreen.storyboard in Resources */,
+				F741EE0D1C695F6B0034C201 /* rien.png in Resources */,
 				F72D5EC61C655AD70079D293 /* Assets.xcassets in Resources */,
 				F741EE0B1C691E8F0034C201 /* rss.png in Resources */,
 				F72D5EC41C655AD70079D293 /* Main.storyboard in Resources */,

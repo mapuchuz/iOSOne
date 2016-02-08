@@ -11,6 +11,7 @@
 @interface ViewController () <NSURLConnectionDelegate>
 {
     NSURLConnection *con;
+    UIActivityIndicatorView *av;
    
 }
 @end
@@ -32,23 +33,12 @@
     self.foSmall=    [NSMutableArray new];
     self.foUrl=    [NSMutableArray new];
     self.cacheImages=    [NSMutableDictionary new];
-    
-//    NSURL   *flickrGetURL =[NSURL URLWithString:@"https://www.flickr.com/services/rest/?method=flickr.photos.search&tags=football&safe_search=1&per_page=20&format=json&nojsoncallback=1&api_key=efb4fd5e04fb8f0726fbb75c02782023"];
-//    
-//    
-//    NSURLRequest *theRequest=[NSURLRequest
-//                              requestWithURL:flickrGetURL
-//                              cachePolicy:NSURLRequestUseProtocolCachePolicy
-//                              timeoutInterval:60.0];
-//    
-//    NSLog(@"avant");
-//    con = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-//    NSLog(@"apres");
+
 
     [self getPhotos:@"football"];
     [self.tableView reloadData];
-
-
+//    [av stopAnimating];
+    
 }
 
 -(void)connection:(NSConnection*)con didReceiveResponse:(NSURLResponse *)response {
@@ -93,13 +83,12 @@
              [photo objectForKey:@"id"],
              [photo objectForKey:@"secret"]];
             [self.foUrl addObject:founeURL];
-            
-            
-            
+ 
         }
         
     }
     NSLog(@"foTitre count : %lul", (unsigned long)[self.foTitre count]);
+        [av stopAnimating];
     [self.tableView reloadData];
     
 }
@@ -126,11 +115,16 @@
     cell.detailTextLabel.text= self.foUrl[indexPath.row];
     
     NSString *localPath = [[NSBundle mainBundle]bundlePath];
-    NSString *imageName = [localPath stringByAppendingPathComponent:[[NSString alloc]initWithFormat:@"rss.png"]];
+    NSString *imageName = [localPath stringByAppendingPathComponent:[[NSString alloc]initWithFormat:@"rien.png"]];
     cell.imageView.image=  [UIImage imageWithContentsOfFile:imageName];
 
     NSData *data=nil ;
 
+    UIActivityIndicatorView *av2 =   [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    av2.color=   [UIColor blueColor];
+    [av2 startAnimating];
+    [cell.imageView addSubview:av2];
+    
     //  si image dans le cache
     if( [self.cacheImages objectForKey:[NSString stringWithFormat:@"%ld", (long)indexPath.row]] )   {
         data= [self.cacheImages objectForKey:[NSString stringWithFormat:@"%ld", (long)indexPath.row]];
@@ -151,11 +145,13 @@
                 if (cell2) {
                     cell2.imageView.image=  [UIImage imageWithData:data];
                 }
+                    [av2 stopAnimating];
                 [cell2 setNeedsLayout];
             });
         });
     
     }
+
     return cell;
     
 }
@@ -172,13 +168,19 @@
 }
 
 -(void)getPhotos:(NSString*)texte {
+    av =   [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    av.center=self.view.center;
+    av.color=   [UIColor blueColor];
+    [av startAnimating];
+    [self.view addSubview:av];
+    
     [self.foTitre   removeAllObjects];
     [self.foSmall   removeAllObjects ];
     [self.foUrl     removeAllObjects ];
     [self.cacheImages removeAllObjects];
     [con cancel];
     
-    NSString *maS=[NSString stringWithFormat:@"https://www.flickr.com/services/rest/?method=flickr.photos.search&tags=%@&safe_search=1&per_page=20&format=json&nojsoncallback=1&api_key=efb4fd5e04fb8f0726fbb75c02782023", texte]; //self.maSearchBarre.text];
+    NSString *maS=[NSString stringWithFormat:@"https://www.flickr.com/services/rest/?method=flickr.photos.search&tags=%@&safe_search=1&per_page=200&format=json&nojsoncallback=1&api_key=efb4fd5e04fb8f0726fbb75c02782023", texte]; //self.maSearchBarre.text];
     
     
     NSURL   *flickrGetURL =[NSURL URLWithString:maS];
@@ -189,7 +191,7 @@
                               timeoutInterval:60.0];
     
     con = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
-    
+//    [av stopAnimating];
 }
 
 @end
