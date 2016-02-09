@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "MonImageViewController.h"
 
 @interface ViewController () <NSURLConnectionDelegate>
 {
@@ -192,6 +193,23 @@
     
     con = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
 //    [av stopAnimating];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+        if( [segue.identifier isEqualToString:@"segueImage" ]) {
+            
+            NSIndexPath *ip=    [self.tableView indexPathForSelectedRow];
+            
+            //Destination du segue
+            MonImageViewController *detailVC= segue.destinationViewController;
+            UITableViewCell *cell =[self.tableView cellForRowAtIndexPath:ip];
+            detailVC.leTitre=  cell.textLabel.text;
+            detailVC.leDetail=cell.detailTextLabel.text;
+            detailVC.uneIUmage=   cell.imageView.image;
+            
+        }
+  
+
 }
 
 @end

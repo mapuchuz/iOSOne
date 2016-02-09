@@ -17,6 +17,7 @@
 		F72D5EDF1C655AD70079D293 /* ConnexionServeurUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = F72D5EDE1C655AD70079D293 /* ConnexionServeurUITests.m */; };
 		F741EE0B1C691E8F0034C201 /* rss.png in Resources */ = {isa = PBXBuildFile; fileRef = F741EE0A1C691E8F0034C201 /* rss.png */; };
 		F741EE0D1C695F6B0034C201 /* rien.png in Resources */ = {isa = PBXBuildFile; fileRef = F741EE0C1C695F6B0034C201 /* rien.png */; };
+		F741EE101C6963A40034C201 /* MonImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F741EE0F1C6963A40034C201 /* MonImageViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		F72D5EE01C655AD70079D293 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F741EE0A1C691E8F0034C201 /* rss.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rss.png; sourceTree = "<group>"; };
 		F741EE0C1C695F6B0034C201 /* rien.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rien.png; sourceTree = "<group>"; };
+		F741EE0E1C6963A40034C201 /* MonImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MonImageViewController.h; sourceTree = "<group>"; };
+		F741EE0F1C6963A40034C201 /* MonImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MonImageViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +114,8 @@
 				F72D5EBF1C655AD70079D293 /* ViewController.h */,
 				F72D5EC01C655AD70079D293 /* ViewController.m */,
 				F72D5EC21C655AD70079D293 /* Main.storyboard */,
+				F741EE0E1C6963A40034C201 /* MonImageViewController.h */,
+				F741EE0F1C6963A40034C201 /* MonImageViewController.m */,
 				F72D5EC51C655AD70079D293 /* Assets.xcassets */,
 				F72D5EC71C655AD70079D293 /* LaunchScreen.storyboard */,
 				F741EE0C1C695F6B0034C201 /* rien.png */,
@@ -281,6 +286,7 @@
 				F72D5EC11C655AD70079D293 /* ViewController.m in Sources */,
 				F72D5EBE1C655AD70079D293 /* AppDelegate.m in Sources */,
 				F72D5EBB1C655AD70079D293 /* main.m in Sources */,
+				F741EE101C6963A40034C201 /* MonImageViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
