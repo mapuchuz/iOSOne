@@ -18,13 +18,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="oLD-Ld-XFC">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="rsV-xK-V0R"/>
-                                </connections>
-                            </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="F9O-WW-evd">
                                 <rect key="frame" x="20" y="90" width="560" height="293"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -52,9 +45,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="cc4-Zs-ZXt" kind="show" identifier="segueImage" id="Chu-47-XXO"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -62,27 +52,91 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="aLt-1P-3fy"/>
                                 </connections>
                             </tableView>
+                            <visualEffectView opaque="NO" contentMode="scaleToFill" misplaced="YES" restorationIdentifier="blurre" translatesAutoresizingMaskIntoConstraints="NO" id="cIi-RV-ub6">
+                                <rect key="frame" x="122" y="43" width="439" height="512"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iaP-cp-wjl">
+                                    <rect key="frame" x="0.0" y="0.0" width="439" height="512"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <subviews>
+                                        <imageView multipleTouchEnabled="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Obo-kK-qFd">
+                                            <rect key="frame" x="73" y="84" width="297" height="363"/>
+                                            <gestureRecognizers/>
+                                            <connections>
+                                                <outletCollection property="gestureRecognizers" destination="XLm-5x-smY" appends="YES" id="bhe-jS-Fxw"/>
+                                                <outletCollection property="gestureRecognizers" destination="NKY-Qb-7PR" appends="YES" id="A3i-mS-B4w"/>
+                                                <outletCollection property="gestureRecognizers" destination="gVW-DH-nUa" appends="YES" id="E7s-SQ-sDW"/>
+                                                <outletCollection property="gestureRecognizers" destination="BCc-CL-HmH" appends="YES" id="S5m-xX-4Jp"/>
+                                            </connections>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="Obo-kK-qFd" firstAttribute="top" secondItem="iaP-cp-wjl" secondAttribute="top" id="LBu-WU-W2Q"/>
+                                        <constraint firstAttribute="bottom" secondItem="Obo-kK-qFd" secondAttribute="bottom" id="NnO-Un-PoZ"/>
+                                        <constraint firstItem="Obo-kK-qFd" firstAttribute="leading" secondItem="iaP-cp-wjl" secondAttribute="leading" id="iFK-oy-V3u"/>
+                                        <constraint firstAttribute="trailing" secondItem="Obo-kK-qFd" secondAttribute="trailing" id="lpf-7g-5T5"/>
+                                    </constraints>
+                                </view>
+                                <blurEffect style="dark"/>
+                            </visualEffectView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="oLD-Ld-XFC">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="rsV-xK-V0R"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="oLD-Ld-XFC" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="6oG-DW-iq7"/>
+                            <constraint firstItem="cIi-RV-ub6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="7jV-DQ-E3l"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="cIi-RV-ub6" secondAttribute="bottom" id="8Ny-lJ-bvk"/>
                             <constraint firstAttribute="trailing" secondItem="oLD-Ld-XFC" secondAttribute="trailing" id="DBp-jU-rnR"/>
                             <constraint firstItem="F9O-WW-evd" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="IR6-t2-MBp"/>
                             <constraint firstAttribute="trailingMargin" secondItem="F9O-WW-evd" secondAttribute="trailing" id="KNV-Ih-hj2"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="F9O-WW-evd" secondAttribute="bottom" id="PNp-pl-2zE"/>
                             <constraint firstItem="oLD-Ld-XFC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UlQ-2l-cP0"/>
+                            <constraint firstItem="cIi-RV-ub6" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="bsU-JD-bp7"/>
+                            <constraint firstItem="cIi-RV-ub6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="pdU-Iv-MV9"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="cIi-RV-ub6" secondAttribute="trailing" id="sWI-e6-56e"/>
                             <constraint firstItem="F9O-WW-evd" firstAttribute="top" secondItem="oLD-Ld-XFC" secondAttribute="bottom" id="vhe-8j-zBg"/>
                             <constraint firstItem="F9O-WW-evd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="x2i-Fm-Vhg"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="maBlurImage" destination="Obo-kK-qFd" id="vNu-Hv-JEy"/>
+                        <outlet property="maBlurView" destination="cIi-RV-ub6" id="lg0-gj-dQI"/>
                         <outlet property="maSearchBarre" destination="oLD-Ld-XFC" id="4ga-We-8VD"/>
                         <outlet property="tableView" destination="F9O-WW-evd" id="Qbw-dU-Quy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="XLm-5x-smY">
+                    <connections>
+                        <action selector="tapped:" destination="BYZ-38-t0r" id="EMd-ps-QpH"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="i8A-jw-nbN"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <pinchGestureRecognizer id="NKY-Qb-7PR">
+                    <connections>
+                        <action selector="pinchemoi:" destination="BYZ-38-t0r" id="qcX-0u-5rV"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="Y4l-Sd-YwT"/>
+                    </connections>
+                </pinchGestureRecognizer>
+                <rotationGestureRecognizer id="gVW-DH-nUa">
+                    <connections>
+                        <action selector="rotateMoi:" destination="BYZ-38-t0r" id="Lib-fQ-BZV"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="vky-TR-eLd"/>
+                    </connections>
+                </rotationGestureRecognizer>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="BCc-CL-HmH">
+                    <connections>
+                        <action selector="panneMoi:" destination="BYZ-38-t0r" id="Mcg-Zf-yXE"/>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="Ck7-Ph-Sd6"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-717" y="97"/>
+            <point key="canvasLocation" x="-578" y="-27"/>
         </scene>
         <!--Mon Image View Controller-->
         <scene sceneID="DJy-h1-C60">

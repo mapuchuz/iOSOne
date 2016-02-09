@@ -21,8 +21,15 @@ UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *maSearchBarre;
 
-
 @property (weak, nonatomic) IBOutlet UIImageView *testImage;
+
+@property (weak, nonatomic) IBOutlet UIVisualEffectView *maBlurView;
+
+@property (weak, nonatomic) IBOutlet UIImageView *maBlurImage;
+
+- (IBAction)tapped:(UITapGestureRecognizer *)sender;
+- (IBAction)rotateMoi:(UIRotationGestureRecognizer *)sender;
+- (IBAction)panneMoi:(UIPanGestureRecognizer *)sender;
 
 @end
 

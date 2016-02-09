@@ -39,6 +39,7 @@
     [self getPhotos:@"football"];
     [self.tableView reloadData];
 //    [av stopAnimating];
+      self.maBlurView.hidden=YES;
     
 }
 
@@ -181,7 +182,7 @@
     [self.cacheImages removeAllObjects];
     [con cancel];
     
-    NSString *maS=[NSString stringWithFormat:@"https://www.flickr.com/services/rest/?method=flickr.photos.search&tags=%@&safe_search=1&per_page=200&format=json&nojsoncallback=1&api_key=efb4fd5e04fb8f0726fbb75c02782023", texte]; //self.maSearchBarre.text];
+    NSString *maS=[NSString stringWithFormat:@"https://www.flickr.com/services/rest/?method=flickr.photos.search&tags=%@&safe_search=1&per_page=20&format=json&nojsoncallback=1&api_key=efb4fd5e04fb8f0726fbb75c02782023", texte]; //self.maSearchBarre.text];
     
     
     NSURL   *flickrGetURL =[NSURL URLWithString:maS];
@@ -194,6 +195,8 @@
     con = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
 //    [av stopAnimating];
 }
+
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
         if( [segue.identifier isEqualToString:@"segueImage" ]) {
@@ -210,6 +213,68 @@
         }
   
 
+}
+
+-(void)tableView:(UITableView*)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath {
+
+
+    NSString *monURL=self.foUrl[indexPath.row];
+    monURL= [monURL stringByReplacingOccurrencesOfString:@"_s.jpg" withString:@".jpg"];
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),^{
+            NSData *data=nil ;
+            data = [NSData dataWithContentsOfURL:[NSURL URLWithString:monURL]];
+        dispatch_sync(dispatch_get_main_queue(), ^{
+            self.maBlurImage.image= [UIImage imageWithData:data];
+        });
+    });
+    
+    self.maBlurView.hidden=NO;
+    self.maBlurImage.hidden=NO;
+    NSLog(@"test click table cell: %@", monURL);
+}
+
+- (IBAction)tapped:(UITapGestureRecognizer *)sender {
+    self.maBlurView.hidden=YES;
+}
+
+- (IBAction)rotateMoi:(UIRotationGestureRecognizer *)sender {
+    sender.view.transform = CGAffineTransformRotate(sender.view.transform, sender.rotation);
+}
+
+- (IBAction)panneMoi:(UIPanGestureRecognizer *)sender {
+    CGPoint translate = [sender translationInView:self.maBlurView];
+    
+    CGRect newFrame = self.maBlurView.frame;
+    newFrame.origin.x += translate.x;
+    newFrame.origin.y += translate.y;
+    self.maBlurView.frame = newFrame;
+    
+    if(sender.state == UIGestureRecognizerStateEnded)
+        self.maBlurView.frame = newFrame;
+}
+
+
+- (IBAction)pinchemoi:(UIPinchGestureRecognizer *)sender {
+    if (sender.state == UIGestureRecognizerStateEnded
+        || sender.state == UIGestureRecognizerStateChanged) {
+        NSLog(@"gesture.scale = %f", sender.scale);
+        
+        CGFloat currentScale = self.maBlurView.frame.size.width / self.maBlurView.bounds.size.width;
+
+        CGFloat newScale = currentScale * sender.scale;
+        
+        if (newScale < 0.5) {
+            newScale = 0.5;
+        }
+        if (newScale > 10) {
+            newScale = 10;
+        }
+        
+        CGAffineTransform transform = CGAffineTransformMakeScale(newScale, newScale);
+        self.maBlurView.transform = transform;
+        sender.scale = 1;
+    }
 }
 
 @end
